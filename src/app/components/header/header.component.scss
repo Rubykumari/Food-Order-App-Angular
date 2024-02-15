@@ -1,0 +1,28 @@
+header {
+    background: white;
+    border-bottom: 1px solid #e72929;
+    .container{
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a {
+            color: #af1313;
+            padding: 1em;
+        }
+        a:hover{
+            background: #e72929;
+            color: white;
+        }
+        .logo{
+            font-weight: bold;
+        }
+        nav{
+            list-style: none;
+            ul{
+                list-style: none;
+            }
+        }
+    }
+
+}
