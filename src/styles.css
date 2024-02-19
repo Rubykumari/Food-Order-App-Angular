@@ -16,3 +16,9 @@ body {
 a{
     text-decoration: none;
 }
+input,button{
+    outline: none;
+}
+input, button{
+    border: none;
+}

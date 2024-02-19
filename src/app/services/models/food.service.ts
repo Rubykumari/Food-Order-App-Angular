@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Food } from 'src/app/shared/models/food';
+import { Tag } from './Tag';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FoodService {
-
   constructor() { }
-
   getAll():Food[]{
     return [
       {
@@ -41,7 +40,7 @@ export class FoodService {
         origins: ['Germany', 'US'],
         star: 3.5,
         imageUrl: 'assets/burger2.jpg',
-        tags: ['Lunch']
+        tags: ['Lunch', 'Burger']
       },  
       {
         id: 4,
@@ -52,7 +51,7 @@ export class FoodService {
         origins: ['Hydrabad'],
         star: 3,
         imageUrl: 'assets/burger3.jpg',
-        tags: ['Lunch']
+        tags: ['Lunch', 'Burger']
       },
       {
         id: 5,
@@ -63,7 +62,7 @@ export class FoodService {
         origins: ['Belgium','France','India'],
         star: 3,
         imageUrl: 'assets/french_fries.jpg',
-        tags: ['Lunch']
+        tags: ['FastFood', 'Fry']
       },
       {
         id: 6,
@@ -107,7 +106,7 @@ export class FoodService {
         origins: ['Indian'],
         star: 3,
         imageUrl: 'assets/pizza3.jpeg',
-        tags: ['Lunch']
+        tags: ['Lunch', 'Pizza']
       },
       {
         id: 10,
@@ -122,14 +121,14 @@ export class FoodService {
       },
       {
         id: 11,
-        name: 'Non-veg Biryani',
+        name: 'Momos',
         price: 9,
         cookTime: '40-50',
         favorite: false,
         origins: ['Hydrabad'],
         star: 4,
         imageUrl: 'assets/momo.jpg',
-        tags: ['Lunch']
+        tags: ['SlowFood']
       },
       {
         id: 12,
@@ -173,7 +172,7 @@ export class FoodService {
         origins: ['Italy'],
         star: 4.5,
         imageUrl: 'assets/biryani.jpg',
-        tags: ['Lunch', 'FastFood', 'Pizza']
+        tags: ['Lunch', 'Pizza']
       },
       {
         id: 14,
@@ -184,8 +183,36 @@ export class FoodService {
         origins: ['Italy'],
         star: 4.8,
         imageUrl: 'assets/burger.jpg',
-        tags: ['Lunch', 'FastFood', 'Pizza']
+        tags: ['Lunch', 'FastFood', 'Burger']
+      },
+      {
+        id: 15,
+        name: 'Chicken Wings',
+        price: 9,
+        cookTime: '15-20',
+        favorite: true,
+        origins: ['Belgium','France','India'],
+        star: 3,
+        imageUrl: 'assets/chicken_wings.jpg',
+        tags: ['FastFood']
       },
     ];
+  }
+  getAllFoodByTag(tag:string):Food[]{
+      return tag=='All'?
+      this.getAll():
+      this.getAll().filter(food=>food.tags?.includes(tag));
+  }
+  getAllTag():Tag[]{
+    return [
+      {name: 'All', count: 17},
+      {name: 'FastFood', count: 4},
+      {name: 'Pizza', count: 4},
+      {name: 'Lunch', count: 3},
+      {name: 'SlowFood', count: 3},
+      {name: 'Burger', count: 3},
+      {name: 'Soup', count: 1},
+      {name: 'Fry', count: 1}
+    ]
   }
 }

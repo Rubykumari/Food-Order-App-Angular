@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path:'search/:paramsItem',
     component:HomeComponent
+  },
+  {
+    path:'tag/:tagName',
+    component:HomeComponent
   }
 ]
 
